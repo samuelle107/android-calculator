@@ -9,28 +9,32 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/backgroundColor"
     >
-    <TextView
-        android:id="@+id/equationLineOne"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_gravity="end"
-        android:layout_above="@id/equationLineTwo"
-        android:layout_alignParentEnd="true"
-        android:textSize="25sp"
-        android:textColor="@color/lightGrey" />
-    <TextView
-        android:id="@+id/equationLineTwo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:layout_gravity="end"
-        android:layout_above="@id/buttonGrid"
-        android:textSize="50sp"
-        android:layout_alignParentEnd="true"
-        android:textColor="@color/darkGrey" />
+        android:layout_above="@+id/buttonGrid"
+        android:layout_alignEnd="@+id/buttonGrid">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+            <TextView
+                android:id="@+id/equationLineOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textSize="25sp"
+                android:textColor="@color/lightGrey" />
+            <TextView
+                android:id="@+id/equationLineTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textSize="50sp"
+                android:textColor="@color/darkGrey" />
+        </LinearLayout>
+    </RelativeLayout>
     <GridLayout
         android:layout_alignParentBottom="true"
         android:id="@+id/buttonGrid"

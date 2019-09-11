@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         if (result.length() != 0) {
             equation = new StringBuilder();
             result = new StringBuilder();
+
             lineOneView.setText("");
             lineTwoView.setText("");
         }
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
         lineOneView.setText(equation);
         lineTwoView.setText(result);
+
         equation = new StringBuilder(result);
     }
 
