@@ -67,7 +67,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void onEqualClick(View v) {
         Expression e = new ExpressionBuilder(equation.toString()).build();
-        result = new StringBuilder(Double.toString(e.evaluate()));
+        try {
+            result = new StringBuilder(Double.toString(e.evaluate()));
+        } catch (Exception err) {
+            result = new StringBuilder("0");
+        }
 
         lineOneView.setText(equation);
         lineTwoView.setText(result);
