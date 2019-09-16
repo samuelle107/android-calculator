@@ -21,7 +21,7 @@ public class CalculatorPresenter {
 
                 break;
             }
-            case PLUSMINUS: {
+            case PLUS_MINUS: {
                 equation.addPlusMinusToEquation();
                 view.updateTextView("", equation.getEquation());
 
