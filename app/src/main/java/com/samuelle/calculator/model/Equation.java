@@ -27,7 +27,13 @@ public class Equation {
             equation.setLength(equation.length() - 1);
         }
 
-        Expression e = new ExpressionBuilder(equation.toString()).build();
+        Expression e;
+        try {
+            e = new ExpressionBuilder(equation.toString()).build();
+        } catch (Exception err) {
+            e = new ExpressionBuilder("0").build();
+        }
+
 
         try {
             result = new StringBuilder(Double.toString(e.evaluate()));
