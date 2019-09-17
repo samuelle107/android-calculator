@@ -14,6 +14,7 @@ public class CalculatorPresenter {
     }
 
     public void onCellSelected(String buttonText, Cell cellType) {
+        // Depending on the button that got typed, it will call the corresponding method from model to modify the equation and then update the view
         switch (cellType) {
             case OPERATOR: {
                 equation.appendOperatorToEquation(buttonText.charAt(0));
