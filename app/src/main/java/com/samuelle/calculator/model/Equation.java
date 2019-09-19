@@ -11,7 +11,7 @@ public class Equation {
     public Equation() {
         equation = new StringBuilder();
         result = new StringBuilder();
-        canAppendDecimal = true;
+        canAppendDecimal = true; // Limit the amount of decimals.  Resets flag when the user clicks on an operator or equal button
     }
 
     public String getEquation() {
@@ -23,6 +23,7 @@ public class Equation {
     }
 
     public void calculateResult() {
+        canAppendDecimal = true;
         char lastChar = equation.charAt(equation.length() - 1);
 
         // If the last symbol in the equation is an operator, remove it.
@@ -44,8 +45,6 @@ public class Equation {
         } catch (Exception err) {
             result = new StringBuilder("0");
         }
-
-        canAppendDecimal = true;
     }
 
     // Adds a symbol to the end of the equation.  If the equation is already evaluated, clear the equation and result, then append the value
