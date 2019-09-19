@@ -46,6 +46,12 @@ public class CalculatorPresenter {
 
                 break;
             }
+            case DECIMAL: {
+                equation.appendDecimalToEquation();
+                view.updateTextView("", equation.getEquation());
+
+                break;
+            }
             default: {
                 equation.appendValueToEquation(buttonText.charAt(0));
                 view.updateTextView("", equation.getEquation());

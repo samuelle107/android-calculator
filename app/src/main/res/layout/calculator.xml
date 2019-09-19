@@ -147,7 +147,7 @@
             style="@style/calculatorButton"
             />
         <Button
-            android:tag="VALUE"
+            android:tag="DECIMAL"
             android:onClick="onCellClick"
             android:text="@string/decimal"
             style="@style/nonNumberButton"

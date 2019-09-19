@@ -6,10 +6,12 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 public class Equation {
     private StringBuilder equation;
     private StringBuilder result;
+    private boolean canAppendDecimal;
 
     public Equation() {
         equation = new StringBuilder();
         result = new StringBuilder();
+        canAppendDecimal = true;
     }
 
     public String getEquation() {
@@ -42,6 +44,8 @@ public class Equation {
         } catch (Exception err) {
             result = new StringBuilder("0");
         }
+
+        canAppendDecimal = true;
     }
 
     // Adds a symbol to the end of the equation.  If the equation is already evaluated, clear the equation and result, then append the value
@@ -71,11 +75,14 @@ public class Equation {
     public void clearEquation() {
         equation = new StringBuilder();
         result = new StringBuilder();
+        canAppendDecimal = true;
     }
 
     // attempt to add an operator at the end of the equation
     // If there is a result, clear the result string, and replace the equation with the result
     public void appendOperatorToEquation(char operator) {
+        canAppendDecimal = true;
+
         if (result.length() != 0) {
             equation = new StringBuilder(result);
             result = new StringBuilder();
@@ -143,6 +150,18 @@ public class Equation {
 
                 equation = new StringBuilder('-' + tempEquation);
             }
+        }
+    }
+
+    public void appendDecimalToEquation() {
+        if (result.length() != 0) {
+            equation = new StringBuilder();
+            result = new StringBuilder();
+        }
+
+        if (canAppendDecimal) {
+            equation.append('.');
+            canAppendDecimal = false;
         }
     }
 }
